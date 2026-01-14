@@ -1,26 +1,76 @@
 @import "tailwindcss";
 
+@theme {
+  --color-burgundy: #4A0404;
+  --color-gold: #D4AF37;
+  --color-cream: #F5F5F0;
+  --color-vanta: #050505;
+
+  --font-playfair: var(--font-playfair);
+  --font-lato: var(--font-lato);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  /* Default to Vanta Black equivalent (or gradient) */
+  --foreground: #F5F5F0;
+  /* Cream text */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom scrollbar hiding utility */
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-vanta text-cream font-lato min-h-screen;
+  background: linear-gradient(to bottom, var(--color-burgundy), var(--color-vanta));
+}
+
+/* Ticket Page Effects */
+@utility vignette-overlay {
+  background: radial-gradient(circle, transparent 20%, rgba(18, 5, 8, 0.9) 100%);
+}
+
+@utility gold-dust {
+  background-image: radial-gradient(#c5a059 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0;
+  }
+
+  body,
+  html {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Ensure background graphics print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide UI elements during print if not needed, typically buttons */
+  button {
+    display: none !important;
+  }
 }
