@@ -11,7 +11,7 @@ export function Board() {
     // Optional: Parallax or fade effects can be added using useScroll here if needed
 
     return (
-        <section id="team" className="py-20 lg:py-32 w-full bg-vanta relative overflow-hidden z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.5)]">
+        <section id="team" className="py-20 lg:py-32 w-full bg-vanta relative overflow-hidden z-10">
             {/* Ambient Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -30,10 +30,10 @@ export function Board() {
             <div
                 ref={containerRef}
                 className="
-                flex overflow-x-auto gap-8 px-4 pb-12
+                flex overflow-x-auto gap-4 px-4 pb-12
                 snap-x snap-mandatory 
                 no-scrollbar 
-                md:place-content-center md:flex-wrap md:overflow-visible
+                md:place-content-center md:flex-wrap md:overflow-visible md:gap-8
             "
             >
                 {boardMembers.map((member, index) => (
@@ -43,7 +43,7 @@ export function Board() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1, duration: 0.6 }}
-                        className="snap-center shrink-0"
+                        className="snap-center shrink-0 w-full min-w-[85vw] md:min-w-0 md:w-auto"
                     >
                         <GoldGlowCard
                             name={member.name}

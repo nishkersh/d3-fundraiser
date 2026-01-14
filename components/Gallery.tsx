@@ -5,7 +5,7 @@ import { CinematicGallery } from '@/components/CinematicGallery';
 
 export function Gallery() {
     return (
-        <section id="gallery" className="sticky top-0 z-0 py-20 w-full bg-[#0a0202] text-center relative">
+        <section id="gallery" className="relative py-20 w-full bg-[#0a0202] text-center">
             <div className="container mx-auto px-4">
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}

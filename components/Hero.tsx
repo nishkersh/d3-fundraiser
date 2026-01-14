@@ -40,7 +40,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.2, ease: 'easeOut' }}
                         whileHover={{ scale: 1.1 }}
-                        className="text-[12rem] sm:text-[16rem] leading-none font-playfair font-black select-none cursor-default"
+                        className="text-[8rem] sm:text-[16rem] leading-none font-playfair font-black select-none cursor-default"
                         style={{
                             color: 'rgba(212, 175, 55, 0.2)',
                             WebkitTextStroke: '2px #D4AF37',
@@ -53,7 +53,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.2, ease: 'easeOut' }}
                         whileHover={{ scale: 1.1 }}
-                        className="text-[12rem] sm:text-[16rem] leading-none font-playfair font-black select-none cursor-default"
+                        className="text-[8rem] sm:text-[16rem] leading-none font-playfair font-black select-none cursor-default"
                         style={{
                             color: 'rgba(212, 175, 55, 0.2)',
                             WebkitTextStroke: '2px #D4AF37',
@@ -64,11 +64,12 @@ export function Hero({ onRegisterClick }: HeroProps) {
                 </div>
 
                 {/* Subline */}
+
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 1, ease: 'easeOut' }}
-                    className="text-white text-lg sm:text-2xl tracking-[0.5em] sm:tracking-[0.8em] font-bold uppercase mt-2 sm:mt-4 mb-12 relative z-50 mix-blend-difference"
+                    className="text-white text-lg sm:text-2xl tracking-[0.5em] sm:tracking-[0.8em] font-bold uppercase mt-4 sm:mt-[-6rem] mb-12 relative z-50 mix-blend-difference"
                 >
                     Donate Dosti Dance
                 </motion.p>
