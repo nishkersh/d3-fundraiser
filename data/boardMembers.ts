@@ -8,32 +8,50 @@ export interface BoardMember {
 export const boardMembers: BoardMember[] = [
     {
         id: '1',
-        name: 'Rohan Gupta',
+        name: 'Harshit kedia',
         role: 'President',
         image: '/assets/team-president.png',
     },
     {
         id: '2',
-        name: 'Aanya Singh',
+        name: 'Harseerat Kaur',
         role: 'Secretary',
         image: '/assets/team-secretary.png',
     },
     {
         id: '3',
-        name: 'Vivaan Kumar',
-        role: 'Treasurer',
+        name: 'Navnita Rajput',
+        role: 'Club Advisor',
         image: '/assets/team-president.png', // Placeholder
     },
     {
         id: '4',
-        name: 'Diya Sharma',
-        role: 'Event Chair',
+        name: 'Pranshu Goyal',
+        role: 'Financial Advisor',
         image: '/assets/team-secretary.png', // Placeholder
     },
     {
         id: '5',
-        name: 'Arjun Patel',
-        role: 'Sponsorship Lead',
+        name: 'Mayank Sharma',
+        role: 'Treasurer',
+        image: '/assets/team-president.png', // Placeholder
+    },
+    {
+        id: '6',
+        name: 'Prinni dutta',
+        role: 'Public Relations Officer',
+        image: '/assets/team-president.png', // Placeholder
+    },
+    {
+        id: '7',
+        name: 'Bhumika',
+        role: 'Social Media Head',
+        image: '/assets/team-president.png', // Placeholder
+    },
+    {
+        id: '8',
+        name: 'saloni',
+        role: 'Creative Head',
         image: '/assets/team-president.png', // Placeholder
     },
 ];
