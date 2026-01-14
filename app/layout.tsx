@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
-import { CursorProvider } from '@/context/CursorContext';
-import { StickyCursor } from '@/components/ui/StickyCursor';
+
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -32,10 +31,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${lato.variable} antialiased`}
       >
-        <CursorProvider>
-          <StickyCursor />
-          {children}
-        </CursorProvider>
+        {children}
       </body>
     </html>
   );

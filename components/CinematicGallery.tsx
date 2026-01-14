@@ -78,9 +78,9 @@ export function CinematicGallery() {
     }
 
     return (
-        <div className="relative flex h-[800px] w-full items-center justify-center overflow-hidden">
+        <div className="relative flex h-[100vh] md:h-[800px] w-full items-center justify-center overflow-hidden">
             {/* Card Stack */}
-            <div className="relative flex h-[550px] w-[350px] items-center justify-center" style={{ perspective: "1200px" }}>
+            <div className="relative flex h-[60vh] w-[85vw] md:h-[550px] md:w-[350px] items-center justify-center" style={{ perspective: "1200px" }}>
                 {mediaItems.map((item, index) => {
                     if (!isVisible(index)) return null
                     const style = getCardStyle(index)
@@ -113,7 +113,7 @@ export function CinematicGallery() {
                             }}
                         >
                             <div
-                                className="relative h-[550px] w-[350px] overflow-hidden rounded-3xl bg-[#2a0202] border border-[#D4AF37]/30"
+                                className="relative h-[60vh] w-[85vw] md:h-[550px] md:w-[350px] overflow-hidden rounded-3xl bg-[#2a0202] border border-[#D4AF37]/30"
                                 style={{
                                     boxShadow: isCurrent
                                         ? "0 10px 40px -10px rgba(212,175,55,0.3)"

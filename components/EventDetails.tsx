@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function EventDetails() {
     return (
-        <section className="py-24 bg-vanta relative border-t border-white/5">
+        <section className="py-24 bg-[#1a0505] relative border-t border-white/5 z-20">
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
 
