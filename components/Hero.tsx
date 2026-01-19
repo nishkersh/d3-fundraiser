@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { CountdownTimer } from '@/components/ui/CountdownTimer';
-import { Magnetic } from '@/components/ui/Magnetic';
+
 
 interface HeroProps {
     onRegisterClick?: () => void;
@@ -85,17 +85,15 @@ export function Hero({ onRegisterClick }: HeroProps) {
 
                 {/* CTA */}
                 <div className="mt-12">
-                    <Magnetic>
-                        <motion.button
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 2, duration: 1 }}
-                            onClick={onRegisterClick}
-                            className="px-8 py-3 bg-gold text-vanta font-bold tracking-wider uppercase rounded-full hover:bg-white transition-all duration-300"
-                        >
-                            Register Now
-                        </motion.button>
-                    </Magnetic>
+                    <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 2, duration: 1 }}
+                        onClick={onRegisterClick}
+                        className="px-8 py-3 bg-gold text-vanta font-bold tracking-wider uppercase rounded-full hover:bg-white transition-all duration-300"
+                    >
+                        Register Now
+                    </motion.button>
                 </div>
             </div>
         </section>

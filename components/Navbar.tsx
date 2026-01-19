@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { Magnetic } from '@/components/ui/Magnetic';
+
 
 interface NavbarProps {
     onRegisterClick: () => void;
@@ -16,17 +16,15 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
         <nav className="fixed top-0 left-0 right-0 z-40 bg-vanta/80 backdrop-blur-md border-b border-white/10">
             <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                 {/* Logo */}
-                <Magnetic>
-                    <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <img src="/assets/logo-main.png" alt="D3 Logo" className="h-20 w-auto object-contain" />
-                    </div>
-                </Magnetic>
+                <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                    <img src="/assets/logo-main.png" alt="D3 Logo" className="h-20 w-auto object-contain" />
+                </div>
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8">
-                    <Magnetic><a href="#about" className="text-cream/80 hover:text-gold transition-colors text-sm uppercase tracking-widest block p-2">About</a></Magnetic>
-                    <Magnetic><a href="#gallery" className="text-cream/80 hover:text-gold transition-colors text-sm uppercase tracking-widest block p-2">Gallery</a></Magnetic>
-                    <Magnetic><a href="#team" className="text-cream/80 hover:text-gold transition-colors text-sm uppercase tracking-widest block p-2">Team</a></Magnetic>
+                    <a href="#about" className="text-cream/80 hover:text-gold transition-colors text-sm uppercase tracking-widest block p-2">About</a>
+                    <a href="#gallery" className="text-cream/80 hover:text-gold transition-colors text-sm uppercase tracking-widest block p-2">Gallery</a>
+                    <a href="#team" className="text-cream/80 hover:text-gold transition-colors text-sm uppercase tracking-widest block p-2">Team</a>
 
                     <button
                         onClick={onRegisterClick}
