@@ -83,7 +83,7 @@ export function RegistrationModal({ onClose }: RegistrationModalProps) {
                 data: {
                     id: uniqueId,
                     name: formData.name,
-                    phone: formData.phone,
+                    phone: "'" + formData.phone,
                     ticket_type: ticketType,
                     amount: amount,
                     screenshot_url: imageSecureUrl,
