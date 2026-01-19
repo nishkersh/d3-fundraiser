@@ -22,7 +22,7 @@ export function Gallery() {
                 <CinematicGallery />
 
                 <p className="text-cream/40 mt-8 text-sm uppercase tracking-widest animate-pulse">
-                    Swipe or Drag to Explore
+                    Swipe Left Or Right to Explore
                 </p>
             </div>
         </section>

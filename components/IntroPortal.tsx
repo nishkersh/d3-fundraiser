@@ -539,7 +539,7 @@ export function IntroPortal({ onEnter }: IntroPortalProps) {
             border border-gold px-8 py-3 rounded-sm bg-black/20 backdrop-blur-sm
           "
                 >
-                    Enter
+                    D3
                 </button>
             </div>
         </div>
