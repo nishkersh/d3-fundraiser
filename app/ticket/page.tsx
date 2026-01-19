@@ -2,6 +2,7 @@
 
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image'; // Import Image component
 
 function TicketContent() {
     const searchParams = useSearchParams();
@@ -25,9 +26,21 @@ function TicketContent() {
             </div>
 
             {/* Content Container */}
-            <div className="relative z-10 flex flex-col items-center justify-between min-h-screen py-16 px-6">
+            <div className="relative z-10 flex flex-col items-center justify-between min-h-screen py-8 px-6">
 
-                {/* Top Branding */}
+                {/* 1. TOP LOGO PANEL (Added) */}
+                <div className="w-full max-w-lg mb-4 opacity-90">
+                    <Image 
+                        src="/assets/footer-panel.png" 
+                        alt="Partners" 
+                        width={600} 
+                        height={100} 
+                        className="w-full h-auto object-contain"
+                        priority
+                    />
+                </div>
+
+                {/* Top Branding Text */}
                 <div className="w-full text-center">
                     <p className="text-gold/80 text-[10px] sm:text-xs font-bold leading-normal tracking-[0.4em] uppercase pb-3 pt-1 px-4">
                         ADMIT ONE
@@ -35,11 +48,21 @@ function TicketContent() {
                     <div className="mx-auto w-8 h-[1px] bg-gold/30"></div>
                 </div>
 
+                {/* 2. CIRCULAR LOGO (Added) */}
+                <div className="relative w-38 h-38 my-6 drop-shadow-2xl">
+                    <Image 
+                        src="/assets/logo-main.png" 
+                        alt="Official Seal" 
+                        fill 
+                        className="object-contain"
+                    />
+                </div>
+
                 {/* Typography & Ticket Details */}
                 <div className="flex flex-col items-center max-w-xl w-full text-center">
 
                     {/* Guest Name */}
-                    <p className="text-gold text-lg sm:text-xl font-playfair italic mb-6">
+                    <p className="text-gold text-lg sm:text-2xl font-playfair italic mb-6">
                         Guest: {guestName}
                     </p>
 
@@ -62,7 +85,7 @@ function TicketContent() {
                 <div className="flex px-4 py-3 justify-center w-full">
                     <button
                         onClick={handlePrint}
-                        className="group relative flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 border border-gold/40 bg-black/40 backdrop-blur-sm text-gold text-sm font-bold leading-normal tracking-[0.2em] uppercase transition-all hover:bg-gold hover:text-black hover:border-gold hover:scale-105 active:scale-95 duration-300"
+                        className="print:hidden group relative flex min-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-8 border border-gold/40 bg-black/40 backdrop-blur-sm text-gold text-sm font-bold leading-normal tracking-[0.2em] uppercase transition-all hover:bg-gold hover:text-black hover:border-gold hover:scale-105 active:scale-95 duration-300"
                     >
                         <span className="truncate relative z-10">Download Ticket</span>
                     </button>
