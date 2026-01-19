@@ -59,7 +59,7 @@ export const boardMembers: BoardMember[] = [
         id: '9',
         name: ' Rtr. Roodransh Mehta',
         role: 'Director International Services',
-        image: '/assets/team-international-services.webp',
+        image: '/assets/team-International-Services.webp',
     },
     {
         id: '10',
