@@ -82,7 +82,7 @@ export const boardMembers: BoardMember[] = [
     {
         id: '13',
         name: 'Rtr. Mannat varma',
-        role: 'Director of Community Services and Club Literacy chair',
+        role: 'Director of Community Services and Club Literacy',
         image: '/assets/team-Director-Community and Literacy-Services.webp',
     },
     {

@@ -1,17 +1,17 @@
 'use client';
 
-import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { GoldGlowCard } from '@/components/ui/GoldGlowCard';
 import { boardMembers } from '@/data/boardMembers';
 
 export function Board() {
-    const containerRef = useRef<HTMLDivElement>(null);
-
-    // Optional: Parallax or fade effects can be added using useScroll here if needed
+    // 1. Duplicate the data to create the seamless loop illusion
+    // We concatenate the array with itself so the end connects to the start
+    const infiniteMembers = [...boardMembers, ...boardMembers];
 
     return (
         <section id="team" className="py-20 lg:py-32 w-full bg-[#1a0505] relative overflow-hidden z-20">
+            
             {/* Ambient Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -26,32 +26,45 @@ export function Board() {
                 </motion.h2>
             </div>
 
-            {/* Scroll Container */}
-            <div
-                ref={containerRef}
-                className="
-                flex overflow-x-auto gap-4 px-4 pb-12
-                snap-x snap-mandatory 
-                no-scrollbar 
-                md:place-content-center md:flex-wrap md:overflow-visible md:gap-8
-            "
-            >
-                {boardMembers.map((member, index) => (
-                    <motion.div
-                        key={member.id}
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1, duration: 0.6 }}
-                        className="snap-center shrink-0 w-full min-w-[85vw] min-h-[50vh] md:min-w-0 md:w-auto"
-                    >
-                        <GoldGlowCard
-                            name={member.name}
-                            role={member.role}
-                            image={member.image}
-                        />
-                    </motion.div>
-                ))}
+            {/* 2. Infinite Marquee Track */}
+            <div className="relative w-full overflow-hidden">
+                {/* Gradient Masks to fade edges (Optional polish) */}
+                <div className="absolute top-0 left-0 h-full w-12 z-10 bg-gradient-to-r from-[#1a0505] to-transparent" />
+                <div className="absolute top-0 right-0 h-full w-12 z-10 bg-gradient-to-l from-[#1a0505] to-transparent" />
+
+                <motion.div
+                    className="flex gap-6 md:gap-10 w-max px-4"
+                    // 3. The Animation: Move from 0 to -50% (halfway)
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{
+                        repeat: Infinity,
+                        ease: "linear",
+                        duration: 40, // Speed: Higher number = Slower scroll
+                    }}
+                    // 4. Pause interaction
+                    whileHover={{ animationPlayState: "paused" }} 
+                    onMouseEnter={(e) => {
+                        // Force pause via style for better browser support
+                        e.currentTarget.style.animationPlayState = 'paused';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.animationPlayState = 'running';
+                    }}
+                >
+                    {infiniteMembers.map((member, index) => (
+                        <div
+                            // Use index in key because IDs are duplicated
+                            key={`${member.id}-${index}`}
+                            className="shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px]"
+                        >
+                            <GoldGlowCard
+                                name={member.name}
+                                role={member.role}
+                                image={member.image}
+                            />
+                        </div>
+                    ))}
+                </motion.div>
             </div>
         </section>
     );
