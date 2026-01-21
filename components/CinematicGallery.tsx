@@ -10,9 +10,9 @@ interface MediaItem {
 }
 
 const mediaItems: MediaItem[] = [
-    { id: 1, type: 'image', src: "/assets/charity-impact-1.png", alt: "Charity Impact 1" },
+    { id: 1, type: 'image', src: "/assets/charity-impact-1.webp", alt: "Charity Impact 1" },
     { id: 2, type: 'video', src: "/assets/event-video-1.webm", alt: "Event Video 1" },
-    { id: 3, type: 'image', src: "/assets/charity-impact-2.png", alt: "Charity Impact 2" },
+    { id: 3, type: 'image', src: "/assets/charity-impact-2.webp", alt: "Charity Impact 2" },
     { id: 4, type: 'video', src: "/assets/event-video-2.webm", alt: "Event Video 2" },
     { id: 5, type: 'image', src: '/assets/event-img-1.webp', alt: 'Past Event Highlight 1' },
     { id: 6, type: 'image', src: '/assets/event-img-2.webp', alt: 'Past Event Highlight 2' },

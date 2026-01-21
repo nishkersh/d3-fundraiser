@@ -34,7 +34,7 @@ export function About() {
                     {/* Optional: Add a subtle decorative element or image if desired inside the card */}
                     <div className="mt-8 relative w-24 h-24 opacity-20 animate-spin-slow">
                         <Image
-                            src="/assets/logo-main.png"
+                            src="/assets/logo-main.webp"
                             alt="Watermark"
                             fill
                             className="object-contain grayscale"

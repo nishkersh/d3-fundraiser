@@ -45,7 +45,7 @@ export function Footer({ className, ...props }: StickyFooterProps) {
                         {/* Partner Panel Image - Placed strictly at the top */}
                         <div className="relative z-10 w-full mb-8">
                             <img
-                                src="/assets/footer-panel.png"
+                                src="/assets/footer-panel.webp"
                                 alt="Partner Panel"
                                 className="w-full h-auto object-contain max-h-[120px] sm:max-h-[150px] mx-auto"
                             />
@@ -55,7 +55,7 @@ export function Footer({ className, ...props }: StickyFooterProps) {
                             {/* Brand Column */}
                             <AnimatedContainer className="w-full max-w-sm min-w-2xs space-y-4">
                                 <div className="flex items-center gap-4">
-                                    <img src="/assets/logo-main.png" alt="Rotaract Logo" className="h-16 w-auto object-contain" />
+                                    <img src="/assets/logo-main.webp" alt="Rotaract Logo" className="h-16 w-auto object-contain" />
                                 </div>
                                 <h3 className="text-xl font-playfair font-bold text-gold">
                                     Rotaract Club Chandigarh
@@ -107,7 +107,7 @@ export function Footer({ className, ...props }: StickyFooterProps) {
 
                         {/* Copyright */}
                         <div className="relative z-10 text-cream/40 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs md:flex-row uppercase tracking-widest">
-                            <p>© 2025 Rotaract Club Chandigarh. All rights reserved.</p>
+                            <p>© 2026 Rotaract Club Chandigarh. All rights reserved.</p>
                             <div className="flex gap-8">
                                 <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
                                 <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
@@ -142,7 +142,7 @@ const footerLinkGroups: FooterLinkGroup[] = [
         links: [
             { title: 'rotaract.chd@gmail.com', href: 'mailto:rotaract.chd@gmail.com' },
             { title: '+91 98765 43210', href: 'tel:+919876543210' },
-            { title: 'Chandigarh, India', href: '#' },
+            { title: '#107A, Sector 18A, Chandigarh', href: '#' },
         ],
     }
 ];

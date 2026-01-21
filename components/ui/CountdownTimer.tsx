@@ -14,7 +14,7 @@ export function CountdownTimer() {
     const calculateTimeLeft = (): TimeLeft => {
         // Target Date: January 31, 2025
         // Target Date: January 31, 2025, 18:00:00
-        const difference = +new Date('2026-01-31T18:00:00') - +new Date();
+        const difference = +new Date('2026-01-31T11:00:00') - +new Date();
         let timeLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 
         if (difference > 0) {

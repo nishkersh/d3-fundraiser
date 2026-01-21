@@ -19,7 +19,7 @@ export function Hero({ onRegisterClick }: HeroProps) {
                     loop
                     muted
                     playsInline
-                    poster="/assets/hero-still.png"
+                    poster="/assets/hero-still.webp"
                     className="w-full h-full object-[50%_20%] object-cover"
                 >
                     <source src="/assets/hero-bg.webm" type="video/webm" />

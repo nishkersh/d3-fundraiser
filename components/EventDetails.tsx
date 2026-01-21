@@ -19,7 +19,7 @@ export function EventDetails() {
                             <Calendar size={32} />
                         </div>
                         <h3 className="text-xl font-playfair text-white mb-2">The Date</h3>
-                        <p className="text-cream/60 font-lato">January 31, 2025</p>
+                        <p className="text-cream/60 font-lato">Jan 31 - Feb 1, 2026</p>
                     </motion.div>
 
                     <motion.div
@@ -33,7 +33,16 @@ export function EventDetails() {
                             <Clock size={32} />
                         </div>
                         <h3 className="text-xl font-playfair text-white mb-2">The Time</h3>
-                        <p className="text-cream/60 font-lato">6:00 PM Onwards</p>
+                        <p className="text-cream/60 font-lato">11:00 AM Onwards</p>
+
+                        {/* Workshop Slots */}
+                        <div className="mt-4 pt-4 border-t border-gold/10 w-full max-w-[200px]">
+                            <p className="text-gold/80 text-xs font-bold uppercase tracking-widest mb-2">Workshop Slots</p>
+                            <p className="text-cream/40 text-xs font-lato leading-relaxed">
+                                11:30am | 1:00pm <br />
+                                2:30pm | 4:00pm | 5:30pm
+                            </p>
+                        </div>
                     </motion.div>
 
                     <motion.div
@@ -47,7 +56,7 @@ export function EventDetails() {
                             <MapPin size={32} />
                         </div>
                         <h3 className="text-xl font-playfair text-white mb-2">The Venue</h3>
-                        <p className="text-cream/60 font-lato">Rotary House, Sector 37<br />Chandigarh</p>
+                        <p className="text-cream/60 font-lato">Rotary House<br />#107A, Sector 18A, Chandigarh</p>
                     </motion.div>
 
                 </div>

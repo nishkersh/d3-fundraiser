@@ -10,7 +10,7 @@ export const boardMembers: BoardMember[] = [
         id: '1',
         name: 'Rtr. Harshit kedia',
         role: 'President',
-        image: '/assets/team-president.png',
+        image: '/assets/team-president.webp',
     },
     {
         id: '2',
@@ -22,7 +22,7 @@ export const boardMembers: BoardMember[] = [
         id: '3',
         name: 'Rtr. Harseerat Kaur',
         role: 'Secretary',
-        image: '/assets/team-secretary.png',
+        image: '/assets/team-secretary.webp',
     },
 
     {
