@@ -43,23 +43,13 @@ function TicketContent() {
                 {/* ADMIT ONE Header */}
                 <div className="w-full mb-2">
                     <p className="text-gold/80 text-[10px] sm:text-xs font-bold leading-normal tracking-[0.4em] uppercase pb-2">
-                        ADMIT ONE
+                        ADMIT PASS
                     </p>
                     <div className="mx-auto w-8 h-[1px] bg-gold/30"></div>
                 </div>
 
-                {/* 2. MAIN ORGANIZERS (New Text Added) */}
-                <div className="space-y-1 mb-2">
-                    <p className="text-white/90 text-xs sm:text-sm font-lato uppercase tracking-wider font-bold">
-                        Rotaract Club of Chandigarh
-                    </p>
-                    <p className="text-white/70 text-[10px] sm:text-xs uppercase tracking-widest">
-                        & Scope Entertainment Presents
-                    </p>
-                </div>
-
                 {/* 3. CIRCULAR LOGO (Slightly smaller to fit text) */}
-                <div className="relative w-24 h-24 my-2 drop-shadow-2xl">
+                <div className="relative w-32 h-32 my-2 drop-shadow-2xl">
                     <Image 
                         src="/assets/logo-main.webp" 
                         alt="Official Seal" 
@@ -68,12 +58,27 @@ function TicketContent() {
                     />
                 </div>
 
+                {/* 2. MAIN ORGANIZERS (New Text Added) */}
+                <div className="space-y-1 mb-2">
+                    <p className="text-white/90 text-xs sm:text-sm font-lato uppercase tracking-wider font-bold">
+                        Rotaract Club of Chandigarh
+                    </p>
+                    <p className="text-white/70 text-[10px] sm:text-xs uppercase tracking-widest">
+                        & Scope Entertainment 
+                    </p>
+                </div>
+
+
                 {/* 4. MAIN EVENT DETAILS */}
                 <div className="flex flex-col items-center max-w-xl w-full">
                     
                     {/* Guest Name */}
                     <p className="text-gold text-xl sm:text-2xl font-playfair italic mb-2">
-                        Guest: {guestName}
+                        Welcomes: {guestName}
+                    </p>
+
+                    <p className="text-gold text-xl sm:text-2xl font-playfair italic mb-2">
+                        FOR
                     </p>
 
                     {/* Title */}

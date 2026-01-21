@@ -17,7 +17,7 @@ export function Navbar({ onRegisterClick }: NavbarProps) {
             <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                 {/* Logo */}
                 <div className="cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <img src="/assets/logo-main.png" alt="D3 Logo" className="h-20 w-auto object-contain" />
+                    <img src="/assets/logo-main.webp" alt="D3 Logo" className="h-20 w-auto object-contain" />
                 </div>
 
                 {/* Desktop Links */}
