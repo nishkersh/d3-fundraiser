@@ -11,6 +11,7 @@ import { Board } from '@/components/Board';
 import { EventDetails } from '@/components/EventDetails';
 import { Footer } from '@/components/Footer';
 import { RegistrationModal } from '@/components/RegistrationModal';
+import { Sponsors } from '@/components/Sponsors';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -55,6 +56,7 @@ export default function Home() {
         <Gallery />
         <Board />
         <EventDetails />
+        <Sponsors />
         <Footer />
 
         {/* Registration Modal Overlay (Z-Index 100) */}
