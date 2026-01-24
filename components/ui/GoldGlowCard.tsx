@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 interface GoldGlowCardProps {
-  children?: React.ReactNode; // FIXED: Added '?' to make it optional
+  children?: React.ReactNode;
   className?: string;
   name?: string;
   role?: string;
@@ -16,8 +16,6 @@ export const GoldGlowCard: React.FC<GoldGlowCardProps> = ({
   children, className = "", name, role, image, isActive = false 
 }) => {
   
-  // Logic: If children exist (like in EventDetails), render them.
-  // If not, render the Team Member layout using the props.
   const content = children || (
       <div className="relative w-full h-full group">
           <div className="w-full h-full overflow-hidden rounded-[22px]">
@@ -25,8 +23,8 @@ export const GoldGlowCard: React.FC<GoldGlowCardProps> = ({
               <img 
                   src={image} 
                   alt={name} 
+                  // FIXED: Removed scale(1.1) on active. Image stays uniform.
                   className="w-full h-full object-cover transition-transform duration-500"
-                  style={{ transform: isActive ? 'scale(1.1)' : 'scale(1)' }}
               />
           </div>
           <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6 pt-20 rounded-b-[22px]">
@@ -42,12 +40,14 @@ export const GoldGlowCard: React.FC<GoldGlowCardProps> = ({
     <motion.div 
       className={`relative rounded-2xl p-[1.5px] bg-gradient-to-br from-[#D4AF37] via-[#F5F5F0] to-[#B8860B] transition-all duration-500 ${className}`}
       style={{
+        // FIXED: Only apply Shadow to active card. NO SCALING.
         boxShadow: isActive 
             ? "0 0 30px 2px rgba(212, 175, 55, 0.6)" 
             : "0 0 0px 0px rgba(0,0,0,0)",
-        scale: isActive ? 1 : 0.98
+        scale: 1 // Always 1. No shrinking or growing.
       }}
-      whileHover={{ scale: 1, boxShadow: "0 0 30px 2px rgba(212, 175, 55, 0.6)" }}
+      // Desktop Hover Effect (Optional - keeping it subtle)
+      whileHover={{ boxShadow: "0 0 30px 2px rgba(212, 175, 55, 0.6)" }}
     >
       <div className="h-full w-full bg-[#2a0202] rounded-2xl overflow-hidden relative">
         {content}

@@ -12,32 +12,31 @@ export function Sponsors() {
     return (
         <section className="py-16 bg-[#1a0505] border-y border-gold/10 relative overflow-hidden z-20">
             
+            <div className="text-center mb-12">
+                <p className="text-gold/60 text-xs tracking-[0.3em] uppercase font-lato">
+                    Our Sponsors
+                </p>
+            </div>
 
-            {/* Static Grid Layout (No moving animation) */}
+            {/* Static Grid Layout */}
             <div className="container mx-auto px-4">
                 <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20">
                     {sponsors.map((sponsor, index) => (
                         <div 
                             key={index} 
-                            className="flex flex-col items-center gap-4 group cursor-pointer active:scale-95 transition-transform duration-200"
+                            className="flex flex-col items-center gap-4"
                         >
                             <div className="relative w-32 h-16 md:w-40 md:h-20">
                                 <Image
                                     src={sponsor.logo}
                                     alt={sponsor.name}
                                     fill
-                                    className="object-contain 
-                                               opacity-80 
-                                               filter grayscale brightness-200 
-                                               transition-all duration-300 
-                                               active:filter-none active:opacity-100 active:scale-110
-                                               hover:filter-none hover:opacity-100 hover:scale-110"
+                                    // FIXED: Removed grayscale/opacity. Always full color.
+                                    className="object-contain"
                                 />
                             </div>
                             
-                            <p className="text-gold/40 text-[10px] md:text-xs font-serif uppercase tracking-widest 
-                                          transition-colors duration-300 
-                                          group-hover:text-gold group-active:text-gold">
+                            <p className="text-gold text-[10px] md:text-xs font-serif uppercase tracking-widest text-center">
                                 {sponsor.name}
                             </p>
                         </div>
