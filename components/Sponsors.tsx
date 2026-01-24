@@ -3,9 +3,11 @@
 import Image from 'next/image';
 
 const sponsors = [
+    { name: "Groove You Dance Studio", logo: "/assets/sponsor4.webp" },
     { name: "Scope Entertainment", logo: "/assets/sponsor1.webp" },
     { name: "Nanhe Kadam", logo: "/assets/sponsor2.webp" },
     { name: "Financially Fearless", logo: "/assets/sponsor3.webp" },
+    
 ];
 
 export function Sponsors() {

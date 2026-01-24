@@ -139,6 +139,7 @@ const footerLinkGroups: FooterLinkGroup[] = [
         links: [
             { title: 'rotaract.chd@gmail.com', href: 'mailto:rotaract.chd@gmail.com' },
             { title: '+91 9056847611', href: 'tel:+919056847611' },
+            { title: '+91 9877169427', href: 'tel:+919877169427' },
             { title: '#107A, Sector 18A, Chandigarh', href: '#' },
         ],
     }
