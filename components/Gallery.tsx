@@ -16,7 +16,6 @@ export function Gallery() {
                         WebkitTextStroke: '1px #D4AF37',
                     }}
                 >
-                    MOMENTS IN MOTION
                 </motion.h2>
 
                 <CinematicGallery />

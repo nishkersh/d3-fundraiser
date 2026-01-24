@@ -1,70 +1,57 @@
 'use client';
 
-
-import Image from 'next/image';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 interface GoldGlowCardProps {
-    image: string;
-    name: string;
-    role: string;
+  children?: React.ReactNode; // FIXED: Added '?' to make it optional
+  className?: string;
+  name?: string;
+  role?: string;
+  image?: string;
+  isActive?: boolean;
 }
 
-export function GoldGlowCard({ image, name, role }: GoldGlowCardProps) {
-    return (
-        <div className="relative group w-[280px] h-[380px] sm:w-[300px] sm:h-[420px] transition-all duration-300">
-            {/* Container wrapper for "inset" scale effect */}
-            <div
-                className="w-full h-full rounded-[20px] transition-all duration-300 group-hover:scale-[0.98]"
-            >
-                {/* The Card Itself */}
-                <div
-                    className="
-            relative w-full h-full 
-            bg-gradient-to-b from-[#1a0505] to-burgundy 
-            rounded-[20px] 
-            border border-gold/40 
-            overflow-hidden 
-            flex flex-col items-center justify-center 
-            transition-all duration-300
-            group-hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]
-            group-hover:border-gold
-          "
-                >
-                    {/* Background Glare Effect (Subtle) */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+export const GoldGlowCard: React.FC<GoldGlowCardProps> = ({ 
+  children, className = "", name, role, image, isActive = false 
+}) => {
+  
+  // Logic: If children exist (like in EventDetails), render them.
+  // If not, render the Team Member layout using the props.
+  const content = children || (
+      <div className="relative w-full h-full group">
+          <div className="w-full h-full overflow-hidden rounded-[22px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                  src={image} 
+                  alt={name} 
+                  className="w-full h-full object-cover transition-transform duration-500"
+                  style={{ transform: isActive ? 'scale(1.1)' : 'scale(1)' }}
+              />
+          </div>
+          <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/80 to-transparent p-6 pt-20 rounded-b-[22px]">
+              <h3 className={`text-2xl font-playfair transition-colors duration-300 ${isActive ? 'text-gold' : 'text-white'}`}>
+                  {name}
+              </h3>
+              <p className="text-sm font-lato text-cream/80 uppercase tracking-widest">{role}</p>
+          </div>
+      </div>
+  );
 
-                    {/* Profile Image */}
-                    <div className="relative w-full flex-1 overflow-hidden rounded-xl border border-white/10 bg-black/50 mb-4">
-                        {/* Image */}
-                        {/* Changed to object-contain to ensure full asset visibility as requested */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-black">
-                            <Image
-                                src={image}
-                                alt={name}
-                                fill
-                                className="object-contain transition-transform duration-500 group-hover:scale-105"
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Text Content */}
-                    <div className="text-center px-4 relative z-10">
-                        <h3 className="text-2xl font-playfair font-bold text-gold mb-2 group-hover:translate-y-[-2px] transition-transform duration-300">
-                            {name}
-                        </h3>
-                        <p className="text-sm font-lato uppercase tracking-[0.2em] text-cream/70 group-hover:text-cream transition-colors duration-300">
-                            {role}
-                        </p>
-                    </div>
-
-                    {/* Decorative Corner Elements (Cyber-style adaptation) */}
-                    <div className="absolute top-4 left-4 w-4 h-4 border-l border-t border-gold/20 group-hover:border-gold/60 transition-colors" />
-                    <div className="absolute top-4 right-4 w-4 h-4 border-r border-t border-gold/20 group-hover:border-gold/60 transition-colors" />
-                    <div className="absolute bottom-4 left-4 w-4 h-4 border-l border-b border-gold/20 group-hover:border-gold/60 transition-colors" />
-                    <div className="absolute bottom-4 right-4 w-4 h-4 border-r border-b border-gold/20 group-hover:border-gold/60 transition-colors" />
-                </div>
-            </div>
-        </div>
-    );
-}
+  return (
+    <motion.div 
+      className={`relative rounded-2xl p-[1.5px] bg-gradient-to-br from-[#D4AF37] via-[#F5F5F0] to-[#B8860B] transition-all duration-500 ${className}`}
+      style={{
+        boxShadow: isActive 
+            ? "0 0 30px 2px rgba(212, 175, 55, 0.6)" 
+            : "0 0 0px 0px rgba(0,0,0,0)",
+        scale: isActive ? 1 : 0.98
+      }}
+      whileHover={{ scale: 1, boxShadow: "0 0 30px 2px rgba(212, 175, 55, 0.6)" }}
+    >
+      <div className="h-full w-full bg-[#2a0202] rounded-2xl overflow-hidden relative">
+        {content}
+      </div>
+    </motion.div>
+  );
+};

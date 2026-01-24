@@ -122,9 +122,6 @@ export function Footer({ className, ...props }: StickyFooterProps) {
 
 const socialLinks = [
     { title: 'Instagram', href: 'https://www.instagram.com/rotaractclubchandigarh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', icon: Instagram },
-    { title: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100000809497580&ref=pl_edit_ig_profile_ac', icon: Facebook },
-    { title: 'Youtube', href: '#', icon: Youtube },
-    { title: 'LinkedIn', href: '#', icon: Linkedin },
 ];
 
 const footerLinkGroups: FooterLinkGroup[] = [
@@ -141,7 +138,7 @@ const footerLinkGroups: FooterLinkGroup[] = [
         label: 'Contact',
         links: [
             { title: 'rotaract.chd@gmail.com', href: 'mailto:rotaract.chd@gmail.com' },
-            { title: '+91 98765 43210', href: 'tel:+919876543210' },
+            { title: '+91 9056847611', href: 'tel:+919056847611' },
             { title: '#107A, Sector 18A, Chandigarh', href: '#' },
         ],
     }

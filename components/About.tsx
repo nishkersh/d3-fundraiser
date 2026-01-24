@@ -14,7 +14,7 @@ export function About() {
               A Legacy of Service
             </h1>
             <p className="text-white/60 text-xs md:text-xl font-lato tracking-[0.3em] mb-8 uppercase">
-              Rotaract Club Chandigarh | Est. 1972
+              Rotaract Club Of Chandigarh | Established 1972
             </p>
           </>
         }
@@ -60,7 +60,7 @@ export function About() {
           {/* Watermark Logo (Kept from your deployed code) */}
           <div className="absolute bottom-[-20px] right-[-20px] w-48 h-48 opacity-10 pointer-events-none">
              <Image
-                src="/assets/logo-main.png" // Ensure this matches your file (png or webp)
+                src="/assets/logo-main.webp" // Ensure this matches your file (png or webp)
                 alt="Watermark"
                 fill
                 className="object-contain grayscale"

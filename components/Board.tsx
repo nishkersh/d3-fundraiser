@@ -1,20 +1,51 @@
 'use client';
 
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GoldGlowCard } from '@/components/ui/GoldGlowCard';
 import { boardMembers } from '@/data/boardMembers';
 
 export function Board() {
-    // 1. Duplicate the data to create the seamless loop illusion
-    // We concatenate the array with itself so the end connects to the start
-    const infiniteMembers = [...boardMembers, ...boardMembers];
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [activeId, setActiveId] = useState<number | string>(boardMembers[0]?.id || 1);
+
+    // Logic to detect which card is in the center of the screen
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const handleScroll = () => {
+            const containerCenter = container.getBoundingClientRect().left + container.offsetWidth / 2;
+            
+            // Find which child is closest to the center
+            const cards = Array.from(container.children) as HTMLElement[];
+            let closestCardId = activeId;
+            let minDistance = Infinity;
+
+            cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const cardCenter = rect.left + rect.width / 2;
+                const distance = Math.abs(containerCenter - cardCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    const id = card.getAttribute('data-id');
+                    if (id) closestCardId = id;
+                }
+            });
+
+            if (closestCardId !== activeId) {
+                setActiveId(closestCardId);
+            }
+        };
+
+        container.addEventListener('scroll', handleScroll, { passive: true });
+        return () => container.removeEventListener('scroll', handleScroll);
+    }, [activeId]);
 
     return (
-        <section id="team" className="py-20 lg:py-32 w-full bg-[#1a0505] relative overflow-hidden z-20">
+        <section id="team" className="py-20 lg:py-32 w-full bg-[#1a0505] relative z-20">
             
-            {/* Ambient Background Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
-
             <div className="container mx-auto px-4 mb-12 text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -26,45 +57,33 @@ export function Board() {
                 </motion.h2>
             </div>
 
-            {/* 2. Infinite Marquee Track */}
-            <div className="relative w-full overflow-hidden">
-                {/* Gradient Masks to fade edges (Optional polish) */}
-                <div className="absolute top-0 left-0 h-full w-12 z-10 bg-gradient-to-r from-[#1a0505] to-transparent" />
-                <div className="absolute top-0 right-0 h-full w-12 z-10 bg-gradient-to-l from-[#1a0505] to-transparent" />
-
-                <motion.div
-                    className="flex gap-6 md:gap-10 w-max px-4"
-                    // 3. The Animation: Move from 0 to -50% (halfway)
-                    animate={{ x: ["0%", "-50%"] }}
-                    transition={{
-                        repeat: Infinity,
-                        ease: "linear",
-                        duration: 40, // Speed: Higher number = Slower scroll
-                    }}
-                    // 4. Pause interaction
-                    whileHover={{ animationPlayState: "paused" }} 
-                    onMouseEnter={(e) => {
-                        // Force pause via style for better browser support
-                        e.currentTarget.style.animationPlayState = 'paused';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.animationPlayState = 'running';
-                    }}
-                >
-                    {infiniteMembers.map((member, index) => (
-                        <div
-                            // Use index in key because IDs are duplicated
-                            key={`${member.id}-${index}`}
-                            className="shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px]"
-                        >
-                            <GoldGlowCard
-                                name={member.name}
-                                role={member.role}
-                                image={member.image}
-                            />
-                        </div>
-                    ))}
-                </motion.div>
+            {/* Static Snap Scroll Container (No Infinite Loop) */}
+            <div
+                ref={containerRef}
+                className="
+                    flex overflow-x-auto gap-6 px-8 pb-12 w-full
+                    snap-x snap-mandatory 
+                    no-scrollbar 
+                    items-center
+                "
+            >
+                {boardMembers.map((member) => (
+                    <div
+                        key={member.id}
+                        data-id={member.id}
+                        className="snap-center shrink-0 w-[280px] md:w-[320px] h-[400px] md:h-[450px]"
+                    >
+                        <GoldGlowCard
+                            name={member.name}
+                            role={member.role}
+                            image={member.image}
+                            isActive={activeId.toString() === member.id.toString()}
+                        />
+                    </div>
+                ))}
+                
+                {/* Spacer to allow last item to center */}
+                <div className="shrink-0 w-4" />
             </div>
         </section>
     );

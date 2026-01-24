@@ -54,9 +54,9 @@ export default function Home() {
         {/* Content Sections */}
         <About />
         <Gallery />
+        <Sponsors />
         <Board />
         <EventDetails />
-        <Sponsors />
         <Footer />
 
         {/* Registration Modal Overlay (Z-Index 100) */}
